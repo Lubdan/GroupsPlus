@@ -177,7 +177,13 @@ public final class GroupsPlus extends Plugin {
         String name = getProxy().getPlayer(UUID.fromString(SUUID)).getName();
         for(String player : groups.get(PToG.get(SUUID).getGroupLeaderUUID())){
             ProxiedPlayer pp = this.getProxy().getPlayer(UUID.fromString(player));
-            pp.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&',properties.getProperty("Group-Chat-Format").replace("%name%",name).replace("%msg%",message))));
+            try{
+                pp.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&',properties.getProperty("Group-Chat-Format").replace("%name%",name).replace("%msg%",message))));
+
+            }
+            catch (Exception ex){
+                //deciding rather to remove people from groups when leaving or not.
+            }
         }
     }
 
