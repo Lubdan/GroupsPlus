@@ -1,0 +1,5 @@
+name: GroupsPlus
+version: "1.0"
+main: lubdan.groupsplus.GroupsPlus
+authors: [Lubdan]
+description: Group-Chat plugin for BungeeCord.
