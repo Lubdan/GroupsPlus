@@ -216,7 +216,13 @@ public class Group extends Command {
                        try{
                            ProxiedPlayer target = plugin.getProxy().getPlayer(args[1]);
                            if(plugin.isSpecificLeader(UUID,target.getUniqueId().toString())){
-                               plugin.leaveGroup(target.getUniqueId().toString());
+                               plugin.getProxy().getScheduler().runAsync(plugin, new Runnable() {
+                                   @Override
+                                   public void run() {
+                                       plugin.leaveGroup(target.getUniqueId().toString());
+                                   }
+                               });
+
                            }
 
                        }
