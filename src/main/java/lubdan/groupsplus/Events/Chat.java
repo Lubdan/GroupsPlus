@@ -19,7 +19,7 @@ public class Chat implements Listener {
         ProxiedPlayer pp = plugin.getProxy().getPlayer(event.getSender().toString());
         if(!event.isCommand() && !event.isCancelled() && !event.isProxyCommand() && (plugin.isChatToggled(pp.getUniqueId().toString()) || event.getMessage().startsWith("@g")) && plugin.inGroup(pp.getUniqueId().toString())){
             event.setCancelled(true);
-            plugin.BCTOG(pp.getUniqueId().toString(),event.getMessage());
+            plugin.BCTOG(pp.getUniqueId().toString(),event.getMessage().replace("@g",""));
         }
     }
 
